@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="row mt-3">
+  <div class="col-md-4 offset-md-4">
+    <h1>Регистрация</h1>
+    <form action="{% url 'register' %}" method="POST" " class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='OK' reset="Reset" %}{% endbuttons %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% load bootstrap5 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Life pro Trips {% endblock %}</title>
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    {% block style %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
+</head>
+    <body>
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+        {% include 'nav.html' %}
+        <div class="conteiner px-4" >
+            {% block content %} 
+            {% endblock %} 
+        </div>
+    </body> 
+</html>

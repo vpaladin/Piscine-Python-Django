@@ -1,0 +1,54 @@
+h1 {
+    font-family: 'Indie Flower';
+}
+
+table {
+    border: 3px solid grey;
+    border-collapse: collapse;
+}
+
+div {
+    display: flex;
+    justify-content : center;
+}
+
+td {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    border: 1px solid grey;
+    padding-left: 20px;
+    width : 200px; 
+}
+
+tr {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    border: 1px solid grey;
+}
+
+th {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    width : 100px; 
+}
+
+ul {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    padding-left: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color : rgb(255, 255, 255);
+}
+
+ol {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    padding-left: 20;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.last {
+    background : #424242; 
+}

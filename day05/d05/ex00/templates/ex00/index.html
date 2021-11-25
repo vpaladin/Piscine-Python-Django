@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex00</title> {% endblock title %}
+
+{% block content %}
+
+{% if n == True %}
+    <p>OK:D</p>
+{% elif res %}
+    <p>{{res}}</p>
+{% else %}
+    <div style="margin: auto 10px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Create table</p>
+            <input type="submit" name="create" value="Create">
+            <p>Delete table</p>
+            <input type="submit" name="delete" value="Delete">
+        </form>
+    </div>
+{% endif %}
+{% endblock content %}

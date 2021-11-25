@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex02</title> {% endblock title %}
+
+{% block content %}
+<hr>
+{% if n == True %}
+    <table style="margin-left: 5px;">
+        <h2 style="padding: 5px;">Movies</h2>
+        <tr style="border-bottom: 3px solid #4c6ea1;">
+            <th style="padding: 5px;">Название</th>
+            <th style="padding: 5px;">Номер эпизода</th>
+            <th style="padding: 5px;">Описание</th>
+            <th style="padding: 5px;">Режисер</th>
+            <th style="padding: 5px;">Продюсер</th>
+            <th style="padding: 5px;">Дата выпуска</th>
+        </tr>
+        {% for x in movies %}
+        <tr>
+            {% for i in x %}
+                {% if i %}
+                    <td style="padding: 5px;">{{ i }}</td>
+                {% else %}
+                <td style="padding: 5px;">Отсутствует</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <div style="margin: auto 5px;">
+        <p>{{ res }} :(</p>
+    </div>
+{% endif %}
+{% endblock content %}

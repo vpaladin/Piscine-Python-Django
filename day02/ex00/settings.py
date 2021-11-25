@@ -1,0 +1,5 @@
+name = "Vayon"
+title = "Resume Vayon Paladin"
+surname = "Paladin"
+age = "23"
+profession = "Python-Senior"

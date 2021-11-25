@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}Favourites{% endblock title %}
+{% block content %}
+<p></p>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th></th>
+    </tr>
+    {% for favourite in favorite_list %}
+    <tr>
+        <td>{{ favourite.article.title }}</td>
+        <td>{{ favourite.article.author }}</td>
+        <td><a class="btn btn-primary" href="{% url 'articles_detail' favourite.id %}" role="button">Read</a></td>
+    <tr>
+    {% empty %}
+     <tr>
+        <td>No featured news</td>
+    <tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex08</title> {% endblock title %}
+
+{% block content %}
+
+{% if res %}
+    <div style="margin: auto 10px;">
+        {% for x in res %}
+            <p>{{ x }}</p>
+        {% endfor %}
+    </div>
+{% else %}
+    <div style="margin: auto 10px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Create table</p>
+            <input type="submit" name="create" value="Create">
+            <p>Delete table</p>
+            <input type="submit" name="delete" value="Delete">
+            <p>Populate table</p>
+            <input type="submit" name="populate" value="Populate">
+            <p>Display table</p>
+            <input type="submit" name="display" value="Display">
+        </form>
+        <form action="" method="post">    
+        </form>
+    </div>
+{% endif %}
+{% endblock content %}

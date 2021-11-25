@@ -1,0 +1,24 @@
+{% extends 'd04/base.html' %}
+{% load static %}
+{% block title %}<title>Ex03</title>{% endblock title %}
+{% block style %}<link rel='stylesheet' href="{% static 'css/style.css' %}">{% endblock style %}
+{% block content %}
+<table>
+    <h1>50 оттенков цветов сабжекта:D</h1>
+    <hr>
+    <tr>
+        <th>Noir</th>
+        <th>Vert</th>
+        <th>Rouge</th>
+        <th>Bleu</th>
+    </tr>
+    {% for i in steps reversed%}
+    <tr>
+        <td style="background-color: hsl(193,{{i}}%,9%);"></td> 
+        <td style="background-color: hsl(139,{{i}}%,15%);"></td> 
+        <td style="background-color: hsl(7,{{i}}%,39%);"></td> 
+        <td style="background-color: hsl(197,{{i}}%,44%);"></td> 
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} News {% endblock %}</title>
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    {% block style %}{% endblock %}
+</head>
+    <body>
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+        {% include 'nav.html' %}
+        <div class="conteiner px-4" >
+            {% block content %} 
+            {% endblock %} 
+        </div>
+    </body> 
+</html>

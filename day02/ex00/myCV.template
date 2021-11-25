@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <title>{title}</title>
+    </head>
+    <body>
+        <div>
+            <h1>{title}</h1>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>Name: </th>
+                    <td>{name}</td>
+                </tr>
+                <tr>
+                    <th>Last Name: </th>
+                    <td>{surname}</td>
+                </tr>
+                <tr>
+                    <th>Age: </th>
+                    <td>{age}</td>
+                </tr>
+                <tr>
+                    <th>Profession: </th>
+                    <td>{profession}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex04</title> {% endblock title %}
+
+{% block content %}
+
+{% if movies %}
+    <div style="margin: auto 10px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Remove movie:</p>
+            <select name='remov_film'>
+                {% for x in movies %}
+                    <option value="{{x.0}}">{{x.0}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Remove">
+        </form>
+    </div>
+{% else %}
+    <div style="margin: auto 10px;">
+        <h2>Доступных фильмов нет :(</h2>
+    </div>
+{% endif %}
+{% endblock content %}

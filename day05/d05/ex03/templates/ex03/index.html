@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex03</title> {% endblock %}
+
+{% block content %}
+<div style="margin: auto 10px;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Delete table</p>
+        <input type="submit" name="delete" value="Delete">
+        <p>Populate table</p>
+        <input type="submit" name="populate" value="Populate">
+        <p>Display table</p>
+        <input type="submit" name="display" value="Display">
+    </form>
+</div>
+{% endblock %}

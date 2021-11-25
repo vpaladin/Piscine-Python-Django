@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}
+{{ object.title }} | {% endblock title %}
+{% block content %}
+<h1>{{ article.title }}</h1>
+<blockquote>{{ article.synopsis }}</blockquote>
+<p>{{ article.content }}</p>
+<div>
+    <ul>
+        <li>{{ article.created }}</li>
+        <li>{{ article.author }}</li>
+    </ul>
+</div>
+{% if user.is_authenticated %}
+    <form action="{% url 'add_favourite' pk=object.id %}" method="POST" class="form">
+        {% csrf_token %}
+        {% buttons submit='Добавить в избраное'%}{% endbuttons %}
+    </form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %} {% load bootstrap5 %}
+<div class="row gx-5">
+    <a href=""><p class="text-end mb-0">On russian</p></a>
+    <p class="fs-4 text-secondary"><strong class="fs-1 text-dark">News</strong> Share your writings</p>
+</div>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="https://bigdatadays.ru/wp-content/uploads/2020/11/School_21_logo_black-980x1285.png" alt="" width="40" height="40" class="d-inline-block align-text-top"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'favourite' %}">Favourite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'publications' %}">Publications</a>
+                </li>
+            {% else %}
+                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'home' %}">News</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+        <span class="navbar-text" style="font-size:medium;">
+          Logged as {{ user.username }}!
+        </span>
+        <span class="navbar-text">
+          <a class="nav-link " href="{% url 'logout'%}">Logout</a>
+        </span>
+        {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form id="login_form" action="{% url 'login' %}" class="form-inline navbar left" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form login_form %}
+                    <button type="submit" class="btn btn-light">Login</button>
+                 </form>
+            </li>
+          </ul>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+</nav>

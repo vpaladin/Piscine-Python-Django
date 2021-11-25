@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex06</title> {% endblock %}
+
+{% block content %}
+<hr>
+{% if res %}
+    <div style="margin: auto 10px;">
+        {% for x in res %}
+            <p>{{ x }}(</p>
+        {% endfor %}
+    </div>
+{% else %}
+    <table style="margin-left: 10px;">
+        <h2 style="padding: 5px;">Население</h2>
+        <tr style="border-bottom: 3px solid #4c6ea1;">
+            <th style="padding: 5px;">Имя</th>
+            <th style="padding: 5px;">Планета</th>
+            <th style="padding: 5px;">Климат</th>
+        </tr>
+        {% if peoples %}
+            {% for x in peoples %}
+            <tr>
+                {% for i in x %}
+                    {% if i %}
+                        <td style="padding: 5px;">{{ i }}</td>
+                    {% else %}
+                        <td style="padding: 5px;">Неизвестно</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        {% else %}
+            <td style="padding: 5px;">Люди не найдены:(</td>
+        {% endif %}
+    </table>
+{% endif %}
+{% endblock %}

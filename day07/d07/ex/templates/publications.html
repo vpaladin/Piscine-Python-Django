@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}Publications{% endblock title %}
+{% block content %}
+<p></p>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Synopsis</th>
+        <th>Author</th>
+        <th>Created</th>
+        <th></th>
+    </tr>
+    {% for article in publications %}
+    <tr>
+        <td> {{ article.title|truncatechars:20 }} </td>
+        <td> {{ article.synopsis|truncatechars:20 }} </td>
+        <td> {{ article.created }} </td>
+        <td><a class="btn btn-primary" href="{% url 'articles_detail' article.id %}" role="button">Read</a></td>
+    <tr>
+    {% empty %}
+    <tr>
+        <td> Публикации отсутствуют</td>
+    <tr>
+    {% endfor %}
+</table>
+<a class="btn btn-primary" href="{% url 'publish' %}" role="button">Add news</a>
+{% endblock %}

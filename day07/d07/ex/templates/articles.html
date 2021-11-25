@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}News{% endblock title %}
+{% block content %}
+<p></p>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Synopsis</th>
+        <th>Author</th>
+        <th>Created</th>
+        <th>When</th>
+        <th></th>
+    </tr>
+    {% for article in news %}
+    <tr>
+        <td> {{ article.title|truncatechars:20 }}</td>
+        <td> {{ article.synopsis|truncatechars:20 }}</td>
+        <td> {{ article.author }}</td>
+        <td> {{ article.created }}</td>
+        <td> {{ article.created|timesince }}</td>
+        <td><a class="btn btn-primary" href="{% url 'articles_detail' article.id %}" role="button">Read</a></td>
+    <tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,4 @@
+python.exe -m pip install --upgrade pip
+pip install django
+pip install requests
+pip install psycopg2

@@ -1,0 +1,29 @@
+{% extends 'd04/base.html' %}
+{% block title %} <title>"Ex02: History log"</title> {% endblock title %}
+{% block content %}
+<div style="margin-left : 10px ;">
+    <h1>Логи и формы</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ form.history_log.errors }}
+            <label for="{{ form.history_log.id_for_label }}">Your message:</label>
+            {{ form.history_log }}
+            {% if form.history_log.errors %}
+                <ol>
+                {% for error in form.history_log.errors %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    <h1>История формы</h1>
+    {% for history in historys %}
+        <p>{{ history }}</p> 
+    {% empty %}
+        <p>Add new log!</p>
+    {% endfor %}
+</div>
+{% endblock content %}

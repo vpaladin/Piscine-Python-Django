@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}
+Опубликовать
+{% endblock title %}
+{% block content %}
+<div class="row mt-3">
+  <div class="col-md-4 offset-md-4">
+    <h1>Post news</h1>
+    <form action="{% url 'publish' %}" method="POST" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='Publish'%}{% endbuttons %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

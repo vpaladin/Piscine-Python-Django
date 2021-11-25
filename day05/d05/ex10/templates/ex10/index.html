@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex10</title> {% endblock title %}
+
+{% block content %}
+
+<div style="margin: auto 10px;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h2>Выбери своих героев!</h2>
+        <p>Пол героя: {{ form.gender }}</p>
+        <p>Минимальная дата релиза: {{ form.min_release_data }}</p>
+        <p>Максимальная дата релиза: {{ form.max_release_data }}</p>
+        <p>Диаметр родной планеты больше чем: {{ form.diameter_greater_than }}</p>
+        <input type="submit" name="Find" value="Find">
+    </form>
+</div>
+<hr>
+<table style="margin-left: 10px;">
+    <h2 style="padding: 5px;">Герои</h2>
+    <tr style="border-bottom: 3px solid #4c6ea1;">
+        <th style="padding: 5px;">Имя</th>
+        <th style="padding: 5px;">Пол</th>
+        <th style="padding: 5px;">Фильм</th>
+        <th style="padding: 5px;">Планета</th>
+        <th style="padding: 5px;">Диаметр планеты</th>
+    </tr>
+    {% if people %}
+        {% for hero in people %}   
+        <tr>                
+            <td style="padding: 5px;">{{ hero.name }}</td>
+            <td style="padding: 5px;">{{ hero.gender }}</td>
+            <td style="padding: 5px;">{{ hero.films__title }}</td>
+            {% if hero.homeworld__name %}
+                <td style="padding: 5px;">{{ hero.homeworld__name }}</td>
+            {% else %}
+                <td style="padding: 5px;">Неизвестно</td>
+            {% endif %}
+            {% if hero.homeworld__diameter %}
+                <td style="padding: 5px;">{{ hero.homeworld__diameter }}</td>
+            {% else %}
+                <td style="padding: 5px;">Неизвестно</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    {% else %}
+        <td style="padding: 5px;">Ничего не соответствует вашему результату исследования</td>
+    {% endif %}
+</table>
+{% endblock content %}

@@ -1,0 +1,5 @@
+Django==3.2.6
+Pillow==8.4.0
+psycopg2-binary==2.9.1
+gunicorn==20.1.0
+django-bootstrap-v5

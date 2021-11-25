@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} <title>Ex09</title> {% endblock %}
+
+{% block content %}
+<hr>
+{% if res %}
+    <div style="margin: auto 10px;">
+        {% for x in res %}
+            <p>{{ x }}(</p>
+        {% endfor %}
+    </div>
+{% else %}
+    <table style="margin-left: 10px;">
+        <h2 style="padding: 5px;">Население</h2>
+        <tr style="border-bottom: 3px solid #4c6ea1;">
+            <th style="padding: 5px;">Имя</th>
+            <th style="padding: 5px;">Планета</th>
+            <th style="padding: 5px;">Климат</th>
+        </tr>
+        {% if people %}
+            {% for x in people %}
+            <tr>                
+                <td style="padding: 5px;">{{ x.name }}</td>
+                {% if x.homeworld %}
+                    <td style="padding: 5px;">{{ x.homeworld}}</td>
+                {% else %}
+                    <td style="padding: 5px;">Неизвестно</td>
+                {% endif %}
+                {% if x.homeworld.climate %}
+                    <td style="padding: 5px;">{{ x.homeworld.climate }}</td>
+                {% else %}
+                    <td style="padding: 5px;">Неизвестно</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        {% else %}
+            <td style="padding: 5px;">
+                <p>No data available, please use the following command line before use:</p>
+                <p>For Windows: .\manage.py loaddata .\data\ex09_initial_data.json</p>
+            </td>
+        {% endif %}
+    </table>
+{% endif %}
+{% endblock %}

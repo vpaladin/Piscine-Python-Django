@@ -1,0 +1,11 @@
+{% extends 'd04/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'css/style1.css' %}"> {% endblock style %}
+{% block title %} <title>Ex01: Django, framework web."</title> {% endblock title  %}
+
+{% block content %}
+<hr>
+{% include 'ex01/navbar.html' %}
+<p>django</p>
+{% endblock content %}

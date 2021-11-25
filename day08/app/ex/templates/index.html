@@ -1,0 +1,34 @@
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 08</title>
+    {% bootstrap_css %} {% bootstrap_javascript %}
+</head>
+    <body style="background-image: url({% static 'grass.jpg' %})">
+        <div class="container">
+            <div class="row">
+                {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+                {% if images_list %}
+                {% for img in images_list %}
+                    <h3 class="text-white" >{{ img.title }}</h3>
+                    <img src="{{ img.image.url }}"
+                         alt="{{ img.title }}"/>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div>
+                <form class="form" method="POST" action="{% url 'ex:index'%}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_field form.title %}
+                    {% bootstrap_field form.image %}
+                    {% buttons submit='Submit' class="btn btn-primary" %}
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
